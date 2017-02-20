@@ -3,7 +3,7 @@ package nowpolimorfizm;
 /**
  * Created by Vova on 17.02.2017.
  */
-public abstract class Computer {
+public class Computer {
     private String name;
     private int ram;
     private  int hdd;
@@ -24,7 +24,13 @@ public abstract class Computer {
     public String getName() {
         return name;
     }
-    abstract public void on();
-   // abstract public void  of();
-  //  abstract public void load();
+     public void on() {
+        System.out.println("я включился " + getName());
+     }
+   public void  of() {
+        System.out.println("я выключился " + getName());
+   }
+  public void load(){
+        System.out.println("объем жестокго диска" + getHdd() + "гб" );
+  }
 }
