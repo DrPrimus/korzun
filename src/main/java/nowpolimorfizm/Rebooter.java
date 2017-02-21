@@ -1,7 +1,7 @@
-package main.java.nowpolimorfizm;
+package nowpolimorfizm;
 
 
-import main.java.nowpolimorfizm.api.IRebootable;
+import nowpolimorfizm.api.IRebootable;
 
 /**
  * Тот, кто умее перегружать устройства, которые перегружаемые

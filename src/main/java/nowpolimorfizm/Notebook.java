@@ -1,4 +1,4 @@
-package main.java.nowpolimorfizm;
+package nowpolimorfizm;
 
 /**
  * Created by Vova on 17.02.2017.

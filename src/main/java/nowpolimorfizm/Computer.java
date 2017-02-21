@@ -1,11 +1,11 @@
-package main.java.nowpolimorfizm;
+package nowpolimorfizm;
 
-import main.java.nowpolimorfizm.api.IRebootable;
+import nowpolimorfizm.api.IRebootable;
 
 /**
  * Created by Vova on 17.02.2017.
  */
-public class Computer implements IRebootable{
+public class Computer implements IRebootable {
     private String name;
     private int ram;
     private  int hdd;
