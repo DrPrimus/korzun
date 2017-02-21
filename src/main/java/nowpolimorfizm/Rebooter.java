@@ -1,13 +1,14 @@
-package nowpolimorfizm;
+package main.java.nowpolimorfizm;
 
-import nowpolimorfizm.api.IRebootable;
+
+import main.java.nowpolimorfizm.api.IRebootable;
 
 /**
  * Тот, кто умее перегружать устройства, которые перегружаемые
  * Синглтон
  * Created by v.hovanski on 21.02.2017.
  */
-public class Rebooter {
+public class Rebooter implements IRebootable {
     private static Rebooter rebooter;
 
     private Rebooter() {
@@ -19,16 +20,16 @@ public class Rebooter {
 
         return rebooter;
     }
-
-
-
-
-
     /**
      * Перегрузить устройство
      * @param rebootable  устройство, которое можно перегружать
      */
     void rebootDevice(IRebootable rebootable){
         rebootable.reboot();
+    }
+
+    public void reboot() {
+        System.out.println("Перезагружаюсь");
+
     }
 }

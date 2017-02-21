@@ -1,4 +1,4 @@
-package nowpolimorfizm.api;
+package main.java.nowpolimorfizm.api;
 
 /**
  * Контракт, позволяющий реализации быть перегруженным

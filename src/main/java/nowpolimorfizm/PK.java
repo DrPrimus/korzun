@@ -1,4 +1,4 @@
-package nowpolimorfizm;
+package main.java.nowpolimorfizm;
 
 /**
  * Created by Vova on 19.02.2017.
@@ -6,6 +6,6 @@ package nowpolimorfizm;
 public class PK extends Computer {
     @Override
     public  void  on(){
-        System.out.println("объекссмчм" + getHdd() + getName());
+        System.out.println("включился" + getHdd() + getName());
     }
 }
