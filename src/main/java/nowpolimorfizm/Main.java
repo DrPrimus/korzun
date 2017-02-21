@@ -13,8 +13,12 @@ public class Main {
         Lg.setHdd(12312);
         Lg.on();*/
 
-       Comp cp = new Comp();
-       cp.m1("что-то");
-       cp.m1(23);
+//       Comp cp = new Comp();
+//       cp.m1("что-то");
+//       cp.m1(23);
+
+
+        Rebooter rebooter = Rebooter.getInstance();
+        //TODO Хочу перегружать твои компьютеры
     }
 }
