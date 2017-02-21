@@ -19,7 +19,6 @@ public class Main {
         rebooter.rebootDevice(new Computer());
         rebooter.rebootDevice(new PK());
 
-
         /* Comp cp = new Comp();
        cp.m1("что-то");
        cp.m1(23);
