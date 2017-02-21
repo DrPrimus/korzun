@@ -29,7 +29,5 @@ public class Rebooter implements IRebootable {
     }
 
     public void reboot() {
-        System.out.println("Перезагружаюсь");
-
     }
 }

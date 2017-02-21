@@ -1,9 +1,11 @@
 package main.java.nowpolimorfizm;
 
+import main.java.nowpolimorfizm.api.IRebootable;
+
 /**
  * Created by Vova on 17.02.2017.
  */
-public class Computer {
+public class Computer implements IRebootable{
     private String name;
     private int ram;
     private  int hdd;
@@ -33,4 +35,8 @@ public class Computer {
   public void load(){
         System.out.println("объем жестокго диска" + getHdd() + "гб" );
   }
+
+    public void reboot() {
+
+    }
 }

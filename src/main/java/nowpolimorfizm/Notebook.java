@@ -3,7 +3,7 @@ package main.java.nowpolimorfizm;
 /**
  * Created by Vova on 17.02.2017.
  */
-public class Notebook extends Computer {
+public class Notebook extends Computer  {
 
     @Override
     public void on() {

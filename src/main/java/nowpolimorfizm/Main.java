@@ -1,7 +1,5 @@
 package main.java.nowpolimorfizm;
 
-import main.java.nowpolimorfizm.api.IRebootable;
-
 /**
  * Created by Vova on 19.02.2017.
  */
@@ -17,8 +15,8 @@ public class Main {
 
         //TODO Хочу перегружать твои компьютеры
         Rebooter rebooter = Rebooter.getInstance();
-        rebooter.rebootDevice((IRebootable)new Notebook());
-        rebooter.rebootDevice((IRebootable)new Computer());
+        rebooter.rebootDevice(new Notebook());
+        rebooter.rebootDevice(new Computer());
         rebooter.reboot();
 
 
