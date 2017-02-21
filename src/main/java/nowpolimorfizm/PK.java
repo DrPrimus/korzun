@@ -6,6 +6,6 @@ package main.java.nowpolimorfizm;
 public class PK extends Computer {
     @Override
     public  void  on(){
-        System.out.println("включился" + getHdd() + getName());
+        System.out.println("я включился " + getName());
     }
 }

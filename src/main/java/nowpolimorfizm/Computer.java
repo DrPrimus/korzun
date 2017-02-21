@@ -37,6 +37,6 @@ public class Computer implements IRebootable{
   }
 
     public void reboot() {
-
+        System.out.println("перезагружаюсь");
     }
 }

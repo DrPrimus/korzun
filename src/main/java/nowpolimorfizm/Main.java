@@ -17,7 +17,7 @@ public class Main {
         Rebooter rebooter = Rebooter.getInstance();
         rebooter.rebootDevice(new Notebook());
         rebooter.rebootDevice(new Computer());
-        rebooter.reboot();
+        rebooter.rebootDevice(new PK());
 
 
         /* Comp cp = new Comp();
