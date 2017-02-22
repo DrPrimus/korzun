@@ -13,7 +13,7 @@ public class Rebooter implements IRebootable {
 
     private Rebooter() {
     }
-
+   //private static final Singleton _instance = new Singleton()
     public static synchronized Rebooter getInstance(){
         if(rebooter == null)
             rebooter = new Rebooter();

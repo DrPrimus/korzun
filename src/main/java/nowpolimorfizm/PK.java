@@ -1,11 +1,13 @@
 package nowpolimorfizm;
 
+import nowpolimorfizm.api.IRebootable;
+
 /**
  * Created by Vova on 19.02.2017.
  */
-public class PK extends Computer {
+public class PK implements IRebootable {
     @Override
-    public  void  on(){
-        System.out.println("я включился " + getName());
+    public void reboot() {
+        System.out.println("перезагружаю пк");
     }
 }
