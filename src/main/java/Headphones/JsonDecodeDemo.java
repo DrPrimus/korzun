@@ -24,14 +24,14 @@ class JsonDecodeDemo {
         obj.put("num", new String("Panasonik"));
         obj.put("model", new Integer(123212));
         obj.put("turnon", new Boolean(true));
-        try (FileWriter file = new FileWriter("C:\\Users\\Vova\\korzun\\src\\main\\resources\\Headphones\\test.json")) {
+        try (FileWriter file = new FileWriter("C:\\Users\\Vova\\korzun\\src\\main\\resources\\headphones\\test.json")) {
             file.write(obj.toString());
             file.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
         /*System.out.print(obj);
-        obj.put("name", "Headphones");
+        obj.put("name", "headphones");
         obj.put("num", new String("Panasonik"));
         obj.put("model", new Integer(123212));
         obj.put("turnon", new Boolean(true));
