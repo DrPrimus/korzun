@@ -16,7 +16,7 @@ class JsonDecodeDemo {
         obj.put("turnon", new Boolean(true));
 
 
-        try (FileWriter file = new FileWriter("C:\\Users\\Vova\\korzun\\test.json")) {
+        try (FileWriter file = new FileWriter("C:\\Users\\Vova\\korzun\\src\\main\\resources\\Headphones\\test.json")) {
             file.write(obj.toString());
             file.flush();
         } catch (IOException e) {
