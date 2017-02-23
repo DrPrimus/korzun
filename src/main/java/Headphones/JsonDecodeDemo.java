@@ -14,6 +14,8 @@ class JsonDecodeDemo {
         obj.put("num", new String("Panasonik"));
         obj.put("model", new Integer(123212));
         obj.put("turnon", new Boolean(true));
+
+
         try (FileWriter file = new FileWriter("D:\\test.json")) {
             file.write(obj.toString());
             file.flush();
