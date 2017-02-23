@@ -10,12 +10,14 @@ class JsonDecodeDemo {
 
     public static void main(String[] args) throws JSONException {
         Headphones panasonik = new Headphones();
+        panasonik.setSize(12);
         panasonik.setColor("черный");
-        panasonik.setSize(123);
+        panasonik.setVolume(2);
+
         JSONObject obj = new JSONObject();
         obj.put("Size",panasonik.getSize());
         obj.put("Color",panasonik.getColor());
-
+        obj.put("Volume",panasonik.volume);
 
 
 

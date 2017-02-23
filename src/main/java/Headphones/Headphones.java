@@ -12,8 +12,6 @@ public class Headphones implements Thing,Iother {
     private boolean turnonoff = false;
     private int size;
     private String color;
-
-
     /**
      * dli poluchemia color
      * @return color
@@ -25,7 +23,6 @@ public class Headphones implements Thing,Iother {
     /**
      * medot dlia kotoruu hranit 2 zna4enia,nauchuku vtklu4enu/vuklu4enu
      */
-
     public void turnonoff() {
         if (turnonoff) {
             turnonoff = false;
@@ -33,7 +30,6 @@ public class Headphones implements Thing,Iother {
             turnonoff = true;
         }
     }
-
     /**
      * medot dlia ocenivania yrovnia gromcosti
      * prinimaem znachinie tolko v tom slu4ae eslu ono ot 0 do 5
@@ -46,7 +42,6 @@ public class Headphones implements Thing,Iother {
             this.volume = volume;
         }
     }
-
     /**
      * metod dlia provetki eslu naychiki vkluchenu  u mu govorim po microfonu,to nas doljnu cluchati,4to mu govotim
      *
@@ -89,9 +84,5 @@ public class Headphones implements Thing,Iother {
     public int getSize() {
         return size;
     }
-
 }
-
-
-
 
