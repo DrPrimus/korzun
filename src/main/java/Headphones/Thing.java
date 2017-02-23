@@ -1,12 +1,12 @@
-package Headphones;
+package headphones;
 
 /**
  * Created by Vova on 13.02.2017.
  */
 public interface Thing {
     void  setColor(String color);
-    void  getColor();
+    String getColor();
     void  setSize(int size);
-    void  getSize();
+    int getSize();
 }
 

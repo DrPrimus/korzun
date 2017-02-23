@@ -1,4 +1,4 @@
-package Headphones;
+package headphones;
 
 import java.io.IOException;
 
@@ -8,14 +8,6 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        Thing panosonik = new Headphones();
-        panosonik.setColor("черный");
-        panosonik.setSize(2);
-        panosonik.getSize();
-        panosonik.getColor();
 
-        Iother other = new Headphones();
-        other.say("sdf");
-        other.setVolume(2);
     }
 }
