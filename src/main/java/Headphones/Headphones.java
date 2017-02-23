@@ -1,9 +1,10 @@
-package Headphones;
+package headphones;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 /**
  * soczdanue classa nayshuku ,opisuvaem class,rabota c naychikamu
+ *
  * @author Vova
  */
 public class Headphones implements Thing,Iother {
@@ -11,15 +12,8 @@ public class Headphones implements Thing,Iother {
     private boolean turnonoff = false;
     private int size;
     private String color;
-    private  String cr;
 
-    public void setCr(String cr) {
-        this.cr = cr;
-    }
 
-    public String getCr() {
-        return cr;
-    }
     /**
      * dli poluchemia color
      * @return color
@@ -29,7 +23,7 @@ public class Headphones implements Thing,Iother {
      * nayshiki mogyt buti ulu man ulu girl,opredelietsia color naychikov
      */
     /**
-     *medot dlia kotoruu hranit 2 zna4enia,nauchuku vtklu4enu/vuklu4enu
+     * medot dlia kotoruu hranit 2 zna4enia,nauchuku vtklu4enu/vuklu4enu
      */
 
     public void turnonoff() {
@@ -39,9 +33,11 @@ public class Headphones implements Thing,Iother {
             turnonoff = true;
         }
     }
+
     /**
      * medot dlia ocenivania yrovnia gromcosti
      * prinimaem znachinie tolko v tom slu4ae eslu ono ot 0 do 5
+     *
      * @param volume
      */
     @Override
@@ -50,8 +46,10 @@ public class Headphones implements Thing,Iother {
             this.volume = volume;
         }
     }
+
     /**
      * metod dlia provetki eslu naychiki vkluchenu  u mu govorim po microfonu,to nas doljnu cluchati,4to mu govotim
+     *
      * @param word
      */
     @Override
@@ -64,30 +62,36 @@ public class Headphones implements Thing,Iother {
             System.out.println(word + kol);
         }
     }
-    class ButListener implements ActionListener{
+
+    class ButListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println(e.getSource());
         }
     }
+
     @Override
     public void setColor(String color) {
-        System.out.println(color);
-        this.color =color;
+        this.color = color;
     }
+
     @Override
-    public void getColor() {
+    public String getColor() {
+        return color ;
     }
 
     @Override
     public void setSize(int size) {
-        System.out.println(size);
         this.size = size;
     }
+
     @Override
-    public void getSize() {
+    public int getSize() {
+        return size;
     }
-    }
+
+}
+
 
 
 

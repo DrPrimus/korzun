@@ -1,4 +1,4 @@
-package Headphones;
+package headphones;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -9,13 +9,19 @@ import java.io.IOException;
 class JsonDecodeDemo {
 
     public static void main(String[] args) throws JSONException {
+        Headphones panasonik = new Headphones();
+        panasonik.setColor("черный");
+        panasonik.setSize(123);
         JSONObject obj = new JSONObject();
-        obj.put("name", "Headphones");
+        obj.put("Size",panasonik.getSize());
+        obj.put("Color",panasonik.getColor());
+
+
+
+
         obj.put("num", new String("Panasonik"));
         obj.put("model", new Integer(123212));
         obj.put("turnon", new Boolean(true));
-
-
         try (FileWriter file = new FileWriter("C:\\Users\\Vova\\korzun\\src\\main\\resources\\Headphones\\test.json")) {
             file.write(obj.toString());
             file.flush();
@@ -31,12 +37,6 @@ class JsonDecodeDemo {
         obj.write(out);
         String jsonText = out.toString();
         System.out.print(jsonText); */
-        Headphones pan = new Headphones();
-        pan.getColor();
-        pan.setVolume(324);
-        pan.setColor("ЧЕРНЫЙ");
-        pan.turnonoff();
-
     }
 }
 
