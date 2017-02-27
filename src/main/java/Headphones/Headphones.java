@@ -43,6 +43,12 @@ public class Headphones implements Thing,Iother {
             this.volume = volume;
         }
     }
+
+    @Override
+    public int getVolume() {
+        return volume;
+    }
+
     /**
      * metod dlia provetki eslu naychiki vkluchenu  u mu govorim po microfonu,to nas doljnu cluchati,4to mu govotim
      *

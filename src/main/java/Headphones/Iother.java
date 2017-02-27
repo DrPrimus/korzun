@@ -5,6 +5,7 @@ package headphones;
  */
 public interface Iother {
     void  setVolume(int volume);
+    int   getVolume();
     void  say(String word);
 
 }
