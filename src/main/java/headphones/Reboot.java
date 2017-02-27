@@ -1,7 +1,5 @@
 package headphones;
 
-import org.codehaus.jackson.map.ObjectMapper;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +21,7 @@ public class Reboot extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
        /* Headphones pas = new Headphones();
         pas.setSize(2);
         pas.setColor("черный");
@@ -58,10 +57,10 @@ public class Reboot extends HttpServlet{
         if(br != null){
             json = br.readLine();
         }
-        ObjectMapper mapper = new ObjectMapper();
-        Headphones headphones = mapper.readValue(json, Headphones.class);
-        response.setContentType("C:\\Users\\Vova\\korzun\\src\\main\\resources\\headphones\\test.json");
-        mapper.writeValue(response.getOutputStream(),headphones);
+        /*ObjectMapper mapper = new ObjectMapper();
+        Headphones headphones = mapper.readValue(json, Headphones.class);*/
+        response.getWriter().write(json);
+        System.out.println(json);
     }
     }
 
