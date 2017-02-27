@@ -21,7 +21,6 @@ public class Reboot extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
        /* Headphones pas = new Headphones();
         pas.setSize(2);
         pas.setColor("черный");
@@ -34,8 +33,6 @@ public class Reboot extends HttpServlet{
         Headphones headphones = objectMapper.readValue(jsonData, Headphones.class);
         System.out.println("Employee Object\n"+headphones.toString());*/
 
-
-
    /*    String json = new Gson().toJson(Headph.getheadphones());
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
@@ -44,14 +41,6 @@ public class Reboot extends HttpServlet{
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-/*        Headphones pas = new Headphones();
-        String color = request.getHeader("color");
-        pas.setColor(color);
-        Integer size = request.getIntHeader("size");
-        pas.setSize(size);
-        Integer volume = request.getIntHeader("volume");
-        pas.setVolume(volume);
-        System.out.println(color + size + volume);*/
         BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
         String json = "";
         if(br != null){
@@ -62,8 +51,7 @@ public class Reboot extends HttpServlet{
         response.getWriter().write(json);*/
         System.out.println(json);
     }
-    }
-
+}
 
 
 
