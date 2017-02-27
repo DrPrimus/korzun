@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
  * @author Vova
  */
 public class Headphones implements Thing,Iother {
+
     public int volume = 0;
     private boolean turnonoff = false;
     private int size;
@@ -57,6 +58,8 @@ public class Headphones implements Thing,Iother {
             System.out.println(word + kol);
         }
     }
+
+
 
     class ButListener implements ActionListener {
         @Override

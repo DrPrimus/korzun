@@ -1,5 +1,6 @@
 package headphones;
 
+import org.codehaus.jackson.map.ObjectMapper;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -12,7 +13,7 @@ class JsonDecodeDemo {
         Headphones panasonik = new Headphones();
         panasonik.setSize(12);
         panasonik.setColor("черный");
-        panasonik.setVolume(2);
+        ObjectMapper mapper = new ObjectMapper();
 
         JSONObject obj = new JSONObject();
         obj.put("Size",panasonik.getSize());
