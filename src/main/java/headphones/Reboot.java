@@ -58,8 +58,8 @@ public class Reboot extends HttpServlet{
             json = br.readLine();
         }
         /*ObjectMapper mapper = new ObjectMapper();
-        Headphones headphones = mapper.readValue(json, Headphones.class);*/
-        response.getWriter().write(json);
+        Headphones headphones = mapper.readValue(json, Headphones.class);
+        response.getWriter().write(json);*/
         System.out.println(json);
     }
     }

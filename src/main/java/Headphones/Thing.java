@@ -8,7 +8,5 @@ public interface Thing {
     String getColor();
     void  setSize(int size);
     int getSize();
-    void  setVolume(int volume);
-    int getVolume();
 }
 
