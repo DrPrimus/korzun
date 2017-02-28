@@ -4,7 +4,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 /**
  * Created by Vova on 23.02.2017.
@@ -42,15 +45,14 @@ public class Reboot extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        InputStream in = new FileInputStream (br.readLine());
-        while(in.available() > 0)
-        {
-            System.out.print(in.read() + " ");
+        InputStream inStream = request.getInputStream( );
+        BufferedReader rd = new BufferedReader(new InputStreamReader(inStream));
+        String json = "";
+        while ((json = rd.readLine()) != null) {
+            System.out.println(json);
         }
-        in.close();
     }
 }
+
 
 
