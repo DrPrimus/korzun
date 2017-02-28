@@ -4,20 +4,20 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 /**
  * Created by Vova on 23.02.2017.
  */
-public class Reboot extends HttpServlet{
+public class Reboot extends HttpServlet {
 
     public Reboot() {
         super();
     }
+
     public void init() throws ServletException {
     }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -38,20 +38,18 @@ public class Reboot extends HttpServlet{
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write(json);*/
     }
+
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
-        String json = "";
-        if(br != null){
-            json = br.readLine();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        InputStream in = new FileInputStream (reader.readLine());
+        while(in.available() > 0)
+        {
+            System.out.print(in.read() + " ");
         }
-        /*ObjectMapper mapper = new ObjectMapper();
-        Headphones headphones = mapper.readValue(json, Headphones.class);
-        response.getWriter().write(json);*/
-        System.out.println(json);
+        in.close();
     }
 }
-
 
 
