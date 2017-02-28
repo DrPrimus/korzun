@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
@@ -45,9 +44,8 @@ public class Reboot extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        InputStream inStream = request.getInputStream( );
-        BufferedReader rd = new BufferedReader(new InputStreamReader(inStream));
-        String json = "";
+        BufferedReader rd = new BufferedReader(new InputStreamReader(request.getInputStream()));
+        String json = " ";
         while ((json = rd.readLine()) != null) {
             System.out.println(json);
         }
