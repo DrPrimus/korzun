@@ -42,8 +42,9 @@ public class Reboot extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        InputStream in = new FileInputStream (reader.readLine());
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        InputStream in = new FileInputStream (br.readLine());
         while(in.available() > 0)
         {
             System.out.print(in.read() + " ");
