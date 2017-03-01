@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -55,7 +54,8 @@ public class Reboot extends HttpServlet {
             System.out.println(json);
         }
         ObjectMapper mapper = new ObjectMapper();
-        Headphones headphones = mapper.readValue(new FileInputStream("classpath:headphones/test.json"), Headphones.class);
+        /*Headphones headphones = mapper.readValue(new FileInputStream("test.json"), Headphones.class);*/
+        Headphones headphones = mapper.readValue(json.toString(), Headphones.class);
         System.out.println(headphones);
         //тут никаких new. Отдай jackson'у строку json И попроси его сконструировать объект типа Headphones
      }
