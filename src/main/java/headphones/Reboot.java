@@ -52,6 +52,8 @@ public class Reboot extends HttpServlet {
           }
         System.out.println(json);
         System.out.println(json);
+
+        Headphones headphones = //тут никаких new. Отдай jackson'у строку json И попроси его сконструировать объект типа Headphones
      }
  }
 
