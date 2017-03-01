@@ -1,10 +1,13 @@
 package headphones;
 
+import org.codehaus.jackson.map.ObjectMapper;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -46,14 +49,15 @@ public class Reboot extends HttpServlet {
             throws ServletException, IOException {
         BufferedReader rd = new BufferedReader(new InputStreamReader(request.getInputStream()));
         StringBuffer json = new StringBuffer();
-        while (rd.ready()){
+        while (rd.ready()) {
             json.append(rd.readLine());
             json.append("\n");
-          }
-        System.out.println(json);
-        System.out.println(json);
-
-        Headphones headphones = //тут никаких new. Отдай jackson'у строку json И попроси его сконструировать объект типа Headphones
+            System.out.println(json);
+        }
+        ObjectMapper mapper = new ObjectMapper();
+        Headphones headphones = mapper.readValue(new FileInputStream("classpath:headphones/test.json"), Headphones.class);
+        System.out.println(headphones);
+        //тут никаких new. Отдай jackson'у строку json И попроси его сконструировать объект типа Headphones
      }
  }
 
