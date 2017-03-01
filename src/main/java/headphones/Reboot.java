@@ -51,12 +51,15 @@ public class Reboot extends HttpServlet {
         while (rd.ready()) {
             json.append(rd.readLine());
             json.append("\n");
-            System.out.println(json);
         }
         ObjectMapper mapper = new ObjectMapper();
-        /*Headphones headphones = mapper.readValue(new FileInputStream("test.json"), Headphones.class);*/
-        Headphones headphones = mapper.readValue(json.toString(), Headphones.class);
-        System.out.println(headphones);
+      /*Headphones headphones = mapper.readValue(new FileInputStream("classpath:headphones/test.json"), Headphones.class);*/
+       Headphones headphones = mapper.readValue(json.toString(), Headphones.class);
+        headphones.setVolume(6);
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write(json.toString());
+        System.out.println("громкость"+ headphones.getVolume());
         //тут никаких new. Отдай jackson'у строку json И попроси его сконструировать объект типа Headphones
      }
  }
