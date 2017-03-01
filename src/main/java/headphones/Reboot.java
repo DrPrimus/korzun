@@ -45,12 +45,15 @@ public class Reboot extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         BufferedReader rd = new BufferedReader(new InputStreamReader(request.getInputStream()));
-        String json = " ";
-        while ((json = rd.readLine()) != null) {
-            System.out.println(json);
-        }
-    }
-}
+        StringBuffer json = new StringBuffer();
+        while (rd.ready()){
+            json.append(rd.readLine());
+            json.append("\n");
+          }
+        System.out.println(json);
+        System.out.println(json);
+     }
+ }
 
 
 
