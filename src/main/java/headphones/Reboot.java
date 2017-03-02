@@ -56,8 +56,10 @@ public class Reboot extends HttpServlet {
       /*Headphones headphones = mapper.readValue(new FileInputStream("classpath:headphones/test.json"), Headphones.class);*/
        Headphones headphones = mapper.readValue(json.toString(), Headphones.class);
        headphones.setVolume(5);
+       headphones.setSize(6);
+       headphones.setColor("black");
         /*String json2 = new Gson().toJson("максимальная громкость" + headphones.getVolume())*/;
-        String jsonObject = mapper.writeValueAsString("максимальный звук"+ headphones.getVolume());
+        String jsonObject = mapper.writeValueAsString(headphones);
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write(jsonObject.toString());
