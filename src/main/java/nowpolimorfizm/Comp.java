@@ -8,7 +8,7 @@ public class Comp {
 
 
 
-   /* public void m1(String h){
+ /*   public void m1(String h){
         h = h+'a';
         System.out.println(h);
     }

@@ -11,6 +11,8 @@ public class Computer implements IRebootable {
     private  int hdd;
     private  int weight;
 
+
+
     public void setHdd(int hdd) {
         this.hdd = hdd;
     }
