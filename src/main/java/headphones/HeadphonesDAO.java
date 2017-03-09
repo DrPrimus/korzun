@@ -4,6 +4,7 @@ import primus.IHeadphonesDAO;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * Реализация слоя доступа к хранилищу наушников
@@ -14,13 +15,12 @@ public class HeadphonesDAO implements IHeadphonesDAO {
 
     private HeadphonesDAO() {
         storage = new HashMap<>();
-        id = 0;
     }
     private Map<String, Headphones> storage;
 
-    private Integer id;
+    UUID idOne = UUID.randomUUID();
 
-    public static synchronized IHeadphonesDAO getINSTANCE(IHeadphonesDAO instance){
+    public static synchronized IHeadphonesDAO getINSTANCE(){
         if(INSTANCE == null)
             INSTANCE = new HeadphonesDAO();
 
@@ -28,25 +28,26 @@ public class HeadphonesDAO implements IHeadphonesDAO {
     }
     @Override
     public String add(Headphones entity){
-        String key = id.toString();
-        storage.put(key, entity);
-        id++;
+        String key = idOne.toString();
+        storage.put(idOne.toString(), entity);
+        idOne.toString();
         return key;
     }
 
     @Override
     public Map<String, Headphones> list(){return storage;}
+
     @Override
-    public Headphones one(String key){return storage.remove(key);}
+    public Headphones one(String key) {return one(idOne.toString());}
 
     @Override
     public Headphones update(String key, Headphones entity) {
-        storage.put(key, entity);
-        return storage.get(key);
+        storage.put(idOne.toString(), entity);
+        return storage.get(idOne);
     }
 
     @Override
-    public Headphones remove(String key) {return storage.remove(key);}
+    public Headphones remove(String key) {return storage.remove(idOne);}
     }
 
     //TODO Написать реализацию интерфейса хранилища наушников. В качестве ключа - строковое представление UUID
