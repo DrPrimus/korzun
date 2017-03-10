@@ -1,15 +1,13 @@
 package headphones;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 /**
  * soczdanue classa nayshuku ,opisuvaem class,rabota c naychikamu
  *
  * @author Vova
  */
-public class Headphones implements Thing,Iother {
+public class Headphones implements Thing, Iother {
 
-    public int volume = 0;
+    private int volume = 0;
     private boolean turnonoff = false;
     private int size;
     private String color;
@@ -63,16 +61,6 @@ public class Headphones implements Thing,Iother {
             System.out.println(word + kol);
         }
     }
-
-
-
-    class ButListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            System.out.println(e.getSource());
-        }
-    }
-
     @Override
     public void setColor(String color) {
         this.color = color;
@@ -92,5 +80,42 @@ public class Headphones implements Thing,Iother {
     public int getSize() {
         return size;
     }
+
+    @Override
+    public String toString(){
+        return "Headphones[ color:" + getColor() + ", size:" + getSize() + ". volume:" + getVolume() + " ]";
+    }
+
+    @Override
+    public boolean equals(Object other){
+        if (other == null){
+            return false;
+        }
+        if (other == this){
+            return true;
+        }
+        if (!(other instanceof Headphones)){
+            return false;
+        }
+
+        Headphones otherHeadphones = (Headphones)other;
+
+        if(!getColor().equals(otherHeadphones.getColor())){
+            return false;
+        }
+        if(getSize() != otherHeadphones.getSize()){
+            return false;
+        }
+        if(getVolume() != otherHeadphones.getVolume()){
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode(){
+        return 13*getSize()+17*getVolume()+19*getColor().hashCode();
+    }
+
 }
 

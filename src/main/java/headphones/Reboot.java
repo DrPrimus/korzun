@@ -1,5 +1,6 @@
 package headphones;
 
+import dao.impl.*;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.UUID;
 
 /**
  * Created by Vova on 23.02.2017.
@@ -55,11 +57,12 @@ public class Reboot extends HttpServlet {
         ObjectMapper mapper = new ObjectMapper();
       /*Headphones headphones = mapper.readValue(new FileInputStream("classpath:headphones/test.json"), Headphones.class);*/
        Headphones headphones = mapper.readValue(json.toString(), Headphones.class);
+       UUID key = HeadphonesDAO.getINSTANCE().add(headphones);
+       System.out.println(HeadphonesDAO.getINSTANCE().one(key));
        headphones.setVolume(5);
        headphones.setSize(6);
        headphones.setColor("black");
         /*String json2 = new Gson().toJson("максимальная громкость" + headphones.getVolume())*/;
-
 
         String jsonObject = mapper.writeValueAsString(headphones);
         response.setContentType("application/json");

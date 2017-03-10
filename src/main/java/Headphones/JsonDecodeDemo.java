@@ -18,7 +18,7 @@ class JsonDecodeDemo {
         JSONObject obj = new JSONObject();
         obj.put("Size",panasonik.getSize());
         obj.put("Color",panasonik.getColor());
-        obj.put("Volume",panasonik.volume);
+        //obj.put("Volume",panasonik.volume);
 
 
 
