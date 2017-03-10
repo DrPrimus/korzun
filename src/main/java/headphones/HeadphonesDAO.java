@@ -13,42 +13,40 @@ import java.util.UUID;
 public class HeadphonesDAO implements IHeadphonesDAO {
     private static IHeadphonesDAO INSTANCE;
 
+    private Map<UUID, Headphones> storage;
+
     private HeadphonesDAO() {
         storage = new HashMap<>();
     }
-    private Map<String, Headphones> storage;
 
-    UUID idOne = UUID.randomUUID();
-
-    public static synchronized IHeadphonesDAO getINSTANCE(){
-        if(INSTANCE == null)
+    public static synchronized IHeadphonesDAO getINSTANCE() {
+        if (INSTANCE == null)
             INSTANCE = new HeadphonesDAO();
 
         return INSTANCE;
     }
-    @Override
-    public String add(Headphones entity){
-        String key = idOne.toString();
-        storage.put(idOne.toString(), entity);
-        idOne.toString();
+    public UUID add(Headphones value) {
+        UUID key = UUID.randomUUID();
+        storage.put(key, value);
         return key;
     }
 
     @Override
-    public Map<String, Headphones> list(){return storage;}
-
-    @Override
-    public Headphones one(String key) {return one(idOne.toString());}
-
-    @Override
-    public Headphones update(String key, Headphones entity) {
-        storage.put(idOne.toString(), entity);
-        return storage.get(idOne);
+    public Map<UUID, Headphones> list() {
+        return storage;
     }
-
     @Override
-    public Headphones remove(String key) {return storage.remove(idOne);}
+    public Headphones one(UUID key) {
+        return storage.get(key);
     }
-
-    //TODO Написать реализацию интерфейса хранилища наушников. В качестве ключа - строковое представление UUID
+    @Override
+    public Headphones update(UUID key, Headphones entity){
+        return storage.put(key,entity);
+    }
+    @Override
+    public Headphones remove(UUID key){
+        return storage.remove(key);
+    }
+}
+//TODO Написать реализацию интерфейса хранилища наушников. В качестве ключа - строковое представление UUID
 

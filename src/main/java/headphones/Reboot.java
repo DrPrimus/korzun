@@ -1,6 +1,5 @@
 package headphones;
 
-import dao.impl.*;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import javax.servlet.ServletException;

@@ -1,7 +1,5 @@
 package headphones;
 
-import dao.impl.HeadphonesDAO;
-
 import java.io.IOException;
 import java.util.UUID;
 
