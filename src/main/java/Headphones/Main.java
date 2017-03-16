@@ -1,7 +1,6 @@
 package headphones;
 
 import java.io.IOException;
-import java.util.UUID;
 
 /**
  * Created by Vova on 03.02.2017.
@@ -10,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        Headphones hp1 = new Headphones();
+    /*    Headphones hp1 = new Headphones();
         hp1.setColor("color1");
         hp1.setSize(1);
         hp1.setVolume(1);
@@ -31,6 +30,6 @@ public class Main {
         HeadphonesDAO.getINSTANCE().update(key2, hp2);
         System.out.println(HeadphonesDAO.getINSTANCE().list());
         HeadphonesDAO.getINSTANCE().remove(key3);
-        System.out.println(HeadphonesDAO.getINSTANCE().list());
+        System.out.println(HeadphonesDAO.getINSTANCE().list());*/
     }
 }

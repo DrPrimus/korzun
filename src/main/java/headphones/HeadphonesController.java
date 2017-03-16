@@ -1,10 +1,15 @@
 package headphones;
 
+import org.codehaus.jackson.map.ObjectMapper;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -21,14 +26,8 @@ public class HeadphonesController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    request.getParameter("Color");
-    request.getParameter("size");
-    request.getParameter("volume");
-    }
-    @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        Headphones hp1 = new Headphones();
+
+    /*  Headphones hp1 = new Headphones();
         hp1.setColor("color1");
         hp1.setSize(1);
         hp1.setVolume(1);
@@ -40,16 +39,59 @@ public class HeadphonesController extends HttpServlet {
         hp3.setColor("color3");
         hp3.setSize(3);
         hp3.setVolume(3);
-        UUID key1 = HeadphonesDAO.getINSTANCE().add(hp1);
-        System.out.println(HeadphonesDAO.getINSTANCE().one(key1));
-        UUID key2 = HeadphonesDAO.getINSTANCE().add(hp2);
-        UUID key3 = HeadphonesDAO.getINSTANCE().add(hp3);
-        hp2.setColor("color4");
-        HeadphonesDAO.getINSTANCE().update(key2, hp2);
-        System.out.println(HeadphonesDAO.getINSTANCE().list());
-        HeadphonesDAO.getINSTANCE().remove(key3);
-        System.out.println(HeadphonesDAO.getINSTANCE().list());
+       HeadphonesDAO.getINSTANCE().add(hp1);
+       HeadphonesDAO.getINSTANCE().add(hp2);
+       HeadphonesDAO.getINSTANCE().add(hp3);*/
+
+        Map<UUID, Headphones> listHeadphones = HeadphonesDAO.getINSTANCE().list();
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write(listHeadphones.toString());
+
     }
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        BufferedReader rd = new BufferedReader(new InputStreamReader(request.getInputStream()));
+        StringBuffer json = new StringBuffer();
+        while (rd.ready()) {
+            json.append(rd.readLine());
+            json.append("\n");
+        }
+        ObjectMapper mapper = new ObjectMapper();
+        Headphones headphones = mapper.readValue(json.toString(), Headphones.class);
+        UUID key = HeadphonesDAO.getINSTANCE().add(headphones);
+        response.getWriter().write(key.toString());
+
+    }
+    @Override
+    public void doDelete(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        String key = req.getRequestURI().replace("/HeadphonesController/", "");
+        UUID keyUUID = UUID.fromString(key);
+        HeadphonesDAO.getINSTANCE().remove(keyUUID);
+    }
+
+    @Override
+    public void doPut(HttpServletRequest req,
+               HttpServletResponse resp)
+            throws ServletException,
+         IOException {
+        BufferedReader rd = new BufferedReader(new InputStreamReader(req.getInputStream()));
+        StringBuffer json = new StringBuffer();
+        while (rd.ready()) {
+            json.append(rd.readLine());
+            json.append("\n");
+        }
+        ObjectMapper mapper = new ObjectMapper();
+        Headphones headphones = mapper.readValue(json.toString(), Headphones.class);
+        String key = req.getRequestURI().replace("/HeadphonesController/", "");
+        UUID keyUUID = UUID.fromString(key);
+        HeadphonesDAO.getINSTANCE().update(keyUUID,headphones);
+
+    }
+  /*  private void log(HttpServletRequest request){
+        System.out.println(request.toString());
+    }*/
     public void destroy() {
         super.destroy();
     }
