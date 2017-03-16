@@ -10,6 +10,7 @@ import java.util.UUID;
  * Реализация слоя доступа к хранилищу наушников
  * Created by v.hovanski on 02.03.2017.
  */
+
 public class HeadphonesDAO implements IHeadphonesDAO {
     private static IHeadphonesDAO INSTANCE;
 
@@ -30,15 +31,12 @@ public class HeadphonesDAO implements IHeadphonesDAO {
         storage.put(key, value);
         return key;
     }
-
     @Override
     public Map<UUID, Headphones> list() {
         return storage;
     }
     @Override
-    public Headphones one(UUID key) {
-        return storage.get(key);
-    }
+    public Headphones one(UUID key) {return storage.get(key);}
     @Override
     public Headphones update(UUID key, Headphones entity){
         return storage.put(key,entity);

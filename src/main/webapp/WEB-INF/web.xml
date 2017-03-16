@@ -12,4 +12,16 @@
    <servlet-name>manservant</servlet-name>
    <url-pattern>/Reboot</url-pattern>
    </servlet-mapping>
+
+   <servlet>
+      <servlet-name>man</servlet-name>
+      <servlet-class>headphones.HeadphonesController</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>man</servlet-name>
+      <url-pattern>/headphones/*</url-pattern>
+   </servlet-mapping>
+
+
+
 </web-app>

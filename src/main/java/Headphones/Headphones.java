@@ -1,11 +1,14 @@
 package headphones;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  * soczdanue classa nayshuku ,opisuvaem class,rabota c naychikamu
  *
  * @author Vova
  */
-public class Headphones implements Thing, Iother {
+public class Headphones implements Thing,Iother {
 
     private int volume = 0;
     private boolean turnonoff = false;
@@ -61,6 +64,16 @@ public class Headphones implements Thing, Iother {
             System.out.println(word + kol);
         }
     }
+
+
+
+    class ButListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println(e.getSource());
+        }
+    }
+
     @Override
     public void setColor(String color) {
         this.color = color;
@@ -118,4 +131,5 @@ public class Headphones implements Thing, Iother {
     }
 
 }
+
 
