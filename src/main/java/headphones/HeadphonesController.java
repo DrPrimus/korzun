@@ -51,14 +51,7 @@ public class HeadphonesController extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        BufferedReader rd = new BufferedReader(new InputStreamReader(request.getInputStream()));
-        StringBuffer json = new StringBuffer();
-        while (rd.ready()) {
-            json.append(rd.readLine());
-            json.append("\n");
-        }
-        ObjectMapper mapper = new ObjectMapper();
-        Headphones headphones = mapper.readValue(json.toString(), Headphones.class);
+        Headphones headphones = createHeadphones(request);
         UUID key = HeadphonesDAO.getINSTANCE().add(headphones);
         response.getWriter().write(key.toString());
 
@@ -72,31 +65,30 @@ public class HeadphonesController extends HttpServlet {
     }
 
     @Override
-    public void doPut(HttpServletRequest req,
-               HttpServletResponse resp)
-            throws ServletException,
+    public void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
          IOException {
-        BufferedReader rd = new BufferedReader(new InputStreamReader(req.getInputStream()));
-        StringBuffer json = new StringBuffer();
-        while (rd.ready()) {
-            json.append(rd.readLine());
-            json.append("\n");
-        }
-        ObjectMapper mapper = new ObjectMapper();
-        Headphones headphones = mapper.readValue(json.toString(), Headphones.class);
-        String key = req.getRequestURI().replace("/HeadphonesController/", "");
+        Headphones headphones = createHeadphones(req);
+        String key = req.getRequestURI().replace("/HeadphonesController/","");
         UUID keyUUID = UUID.fromString(key);
         HeadphonesDAO.getINSTANCE().update(keyUUID,headphones);
 
     }
-  /*  private void log(HttpServletRequest request){
-        System.out.println(request.toString());
-    }*/
+   private Headphones createHeadphones(HttpServletRequest request) throws ServletException,
+           IOException {
+       BufferedReader rd = new BufferedReader(new InputStreamReader(request.getInputStream()));
+       StringBuffer json = new StringBuffer();
+       while (rd.ready()) {
+           json.append(rd.readLine());
+           json.append("\n");
+       }
+       ObjectMapper mapper = new ObjectMapper();
+       Headphones headphones = mapper.readValue(json.toString(), Headphones.class);
+        return headphones;
+
+   }
+
     public void destroy() {
         super.destroy();
     }
-
-
-
 }
 
